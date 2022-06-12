@@ -9,7 +9,7 @@ const adjList = {
 
 function aShortestPath(start, end) {
   let queue = [];
-  let path = [start];
+  let path = [start];// initialize a path to track
   let visited = new Set();
 
   visited.add(start)
@@ -18,10 +18,10 @@ function aShortestPath(start, end) {
   while (queue.length) {
     let lastNode = end;
     let currentNode = queue.shift();
-    let evalNode = currentNode[currentNode.length - 1]
+    let evalNode = currentNode[currentNode.length - 1] //last node in the array
     console.log(currentNode, 'CURR')
     console.log(evalNode, 'EVAL')
-    if (evalNode === lastNode) return currentNode
+    if (evalNode === lastNode) return currentNode //end of the path
 
     adjList[evalNode].forEach((neighbors) => {
       if (!visited.has(neighbors)) {
